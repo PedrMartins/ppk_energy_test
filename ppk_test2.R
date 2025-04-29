@@ -1,5 +1,5 @@
-#install.packages("plotly")
-#install.packages("rmarkdown")
+install.packages("plotly")
+install.packages("rmarkdown")
 library(plotly)
 library(rmarkdown)
 
