@@ -1,8 +1,6 @@
-install.packages("plotly")
+#install.packages("plotly")
 library(plotly)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
+library(rmarkdown)
 
 moving_average <- function(series, window = 5) {
   stats::filter(series, rep(1 / window, window), sides = 2)
@@ -21,7 +19,7 @@ head (ppk)
 tail (ppk)
 #dim (ppk)
 
-plot_ly(data = ppk, x = ~time_m) |>
+plot_ppk <- plot_ly(data = ppk, x = ~time_m) |>
   add_lines(y = ~current_mA, name = "Current (mA)",
             line = list(color = 'blue')) |>
   add_lines(y = ~ma5, name = "Moving Average (ma5)",
