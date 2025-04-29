@@ -1,5 +1,5 @@
-install.packages("plotly")
-install.packages("rmarkdown")
+#install.packages("plotly")
+#install.packages("rmarkdown")
 library(plotly)
 library(rmarkdown)
 
@@ -15,21 +15,25 @@ ppk$Current.uA. <- round (ppk$Current.uA. / 1000,  digits = 3)
 names(ppk) [c(1,2)] <- c("time_m", "current_mA")
 
 ppk$ma5 <- moving_average(ppk$current_mA, window = 5)
-
-head (ppk)
-tail (ppk)
-#dim (ppk)
+ppk$ma10 <- moving_average(ppk$current_mA, window = 10)
+ppk$ma15 <- moving_average(ppk$current_mA, window = 15)
+ppk$ma20 <- moving_average(ppk$current_mA, window = 20)
 
 plot_ppk <- plot_ly(data = ppk, x = ~time_m) |>
   add_lines(y = ~current_mA, name = "Current (mA)",
             line = list(color = 'blue')) |>
   add_lines(y = ~ma5, name = "Moving Average (ma5)",
             line = list(color = 'green')) |>
+  add_lines(y = ~ma10, name = "Moving Average (ma10)",
+            line = list(color = 'purple')) |>
+  add_lines(y = ~ma15, name = "Moving Average (ma15)",
+            line = list(color = 'red')) |>
+  add_lines(y = ~ma5, name = "Moving Average (ma20)",
+            line = list(color = 'pink')) |>
   layout(
     title = "Current and Moving Average",
     xaxis = list(title = "Time (minutes)"),
-    yaxis = list(title = "Current (mA)"),
-    legend = list(title = list(text = "<b>Lines</b>"))
+    yaxis = list(title = "Current (mA)")
     )
 
 
