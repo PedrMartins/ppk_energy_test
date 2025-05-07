@@ -1,0 +1,11 @@
+---
+title: "Plotly PPK Energy testing"
+output: html_document
+---
+
+``` {r echo=FALSE, message=FALSE} 
+source("ppk_test2.R")
+
+plot_ppk
+
+```
