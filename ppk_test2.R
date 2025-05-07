@@ -8,6 +8,7 @@ moving_average <- function(series, window = 5) {
 }
 
 ppk <- read.csv("ppk-30minutes_sample_2emeio_trans5min.csv")
+
 #summary(ppk)
 ppk$Timestamp.ms. <- round (ppk$Timestamp.ms. / (1000*60),  digits = 4)
 ppk$Current.uA. <- round (ppk$Current.uA. / 1000,  digits = 3)
