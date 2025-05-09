@@ -2,32 +2,33 @@
 title: "Plotly PPK Energy testing"
 output: html_document
 ---
+# PPK testing pulga
+
+- The plot below is using the hole device function. 
+  -here is drawing the censoring and send 
+    -where: 
+      - censoring sample is by 2,5 minutes
+      - sendin is by 5 minutes
+
 
 ``` {r echo=FALSE, message=FALSE} 
 
-library(plotly)
-library(rmarkdown)
-moving_average <- function(series, window = 5) {
-  stats::filter(series, rep(1 / window, window), sides = 2)
-}
-
-ppk <- read.csv("ppk-30minutes_sample_2emeio_trans5min.csv")
-
-#summary(ppk)
-ppk$Timestamp.ms. <- round (ppk$Timestamp.ms. / (1000*60),  digits = 4)
-ppk$Current.uA. <- round (ppk$Current.uA. / 1000,  digits = 3)
-
-names(ppk) [c(1,2)] <- c("time_m", "current_mA")
-
-plot_ppk <- plot_ly(data = ppk, x = ~time_m) |>
-  add_lines(y = ~current_mA, name = "Current (mA)",
-            line = list(color = 'blue')) |>
-  layout(
-    title = "Current milliampere",
-    xaxis = list(title = "Time (minutes)"),
-    yaxis = list(title = "Current (mA)")
-    )
-
+source("ppk_test2.R")
 plot_ppk
+
+```
+
+
+- The plot bellow show only the censoring
+
+``` {r echo=FALSE, message=FALSE} 
+
+```
+
+
+- And here only the send 
+
+
+``` {r echo=FALSE, message=FALSE} 
 
 ```
