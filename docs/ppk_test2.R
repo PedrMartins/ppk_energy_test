@@ -43,7 +43,7 @@ plot_ppk_full <- plot_ly(data = ppk, x = ~time_m) |>
 
 plot_ppk_sensor <- plot_ly(data = ppk_sensor, x = ~time_m) |>
   add_lines(y = ~current_mA, name = "Current (mA)",
-            line = list(color = 'blue')) |>
+            line = list(color = 'green')) |>
   layout(
     title = "Current milliampere",
     xaxis = list(title = "Time (minutes)"),
@@ -53,7 +53,7 @@ plot_ppk_sensor <- plot_ly(data = ppk_sensor, x = ~time_m) |>
 
 plot_ppk_lora <- plot_ly(data = ppk_lora, x = ~time_m) |>
   add_lines(y = ~current_mA, name = "Current (mA)",
-            line = list(color = 'blue')) |>
+            line = list(color = 'red')) |>
   layout(
     title = "Current milliampere",
     xaxis = list(title = "Time (minutes)"),
