@@ -8,27 +8,32 @@ output: html_document
   -here is drawing the censoring and send 
     -where: 
       - censoring sample is by 2,5 minutes
-      - sendin is by 5 minutes
+      - sending is by 5 minutes
+      - all testing will use the same time range
 
 
 ``` {r echo=FALSE, message=FALSE} 
 
 source("ppk_test2.R")
-plot_ppk
+plot_ppk_full
 
 ```
 
 
-- The plot bellow show only the censoring
+- The plot bellow show only the censoring, SCD30 without Pulga Lora
 
 ``` {r echo=FALSE, message=FALSE} 
+
+plot_ppk_sensor
 
 ```
 
 
-- And here only the send 
+- And here only the Pulga Lora, without SDC30
 
 
 ``` {r echo=FALSE, message=FALSE} 
+
+plot_ppk_lora
 
 ```
